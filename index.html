@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tirth Makwana — BCA student and aspiring digital professional from Bhavnagar, Gujarat." />
+  <title>Tirth Makwana | Personal Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #080b12;
+      --surface: #101622;
+      --surface-2: #151e2d;
+      --text: #edf2fb;
+      --muted: #9aa8bb;
+      --line: rgba(255,255,255,.09);
+      --accent: #79f2c0;
+      --accent-2: #78a9ff;
+      --glow: rgba(121,242,192,.18);
+      --radius: 22px;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0; color: var(--text); background:
+        radial-gradient(ellipse at 15% 5%, rgba(75,120,180,.13), transparent 34rem),
+        radial-gradient(ellipse at 90% 35%, rgba(65,190,145,.09), transparent 30rem),
+        var(--bg);
+      font-family: "DM Sans", sans-serif; line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: auto; }
+    .nav-wrap { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(18px); background: rgba(8,11,18,.78); border-bottom: 1px solid var(--line); }
+    nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font: 700 1.18rem "Space Grotesk", sans-serif; letter-spacing: -.04em; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 27px; color: var(--muted); font-size: .91rem; }
+    .nav-links a:hover { color: var(--accent); }
+    .menu-btn { display: none; border: 1px solid var(--line); background: var(--surface); color: var(--text); padding: 9px 12px; border-radius: 10px; font-size: 1.1rem; }
+    section { padding: 96px 0; }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .16em; font-size: .75rem; font-weight: 700; }
+    h1,h2,h3,p { margin-top: 0; }
+    h1,h2,h3 { font-family: "Space Grotesk", sans-serif; line-height: 1.12; letter-spacing: -.045em; }
+    h1 { font-size: clamp(3rem, 7vw, 5.8rem); margin: 17px 0 18px; }
+    h2 { font-size: clamp(2.1rem, 4vw, 3.15rem); margin: 12px 0 18px; }
+    h3 { font-size: 1.28rem; margin-bottom: 10px; }
+    .muted { color: var(--muted); }
+    .hero { min-height: calc(100vh - 76px); display: grid; align-items: center; padding: 80px 0 90px; }
+    .hero-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 50px; align-items: center; }
+    .hero-copy { max-width: 720px; }
+    .hero h1 .name { color: var(--accent); }
+    .typing-line { color: var(--muted); font-size: clamp(1.15rem, 2.2vw, 1.55rem); min-height: 2.2em; }
+    .typing { color: var(--text); border-right: 2px solid var(--accent); padding-right: 4px; }
+    .hero-desc { max-width: 590px; color: var(--muted); font-size: 1.05rem; margin: 24px 0 32px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 13px 20px; border-radius: 12px; font-weight: 700; font-size: .92rem; transition: .2s ease; border: 1px solid var(--line); }
+    .btn-primary { background: var(--accent); color: #07130f; border-color: var(--accent); }
+    .btn-secondary { background: rgba(255,255,255,.035); }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px var(--glow); }
+    .hero-card { position: relative; padding: 28px; border: 1px solid var(--line); border-radius: 28px; background: linear-gradient(145deg, rgba(21,30,45,.95), rgba(13,19,29,.88)); box-shadow: 0 25px 80px rgba(0,0,0,.28); }
+    .hero-card:before { content: ""; position: absolute; width: 130px; height: 130px; border-radius: 50%; background: var(--glow); filter: blur(35px); top: -30px; right: -20px; pointer-events: none; }
+    .avatar { width: 100%; aspect-ratio: 1 / 1; border-radius: 20px; display: grid; place-items: center; background: linear-gradient(140deg, #20384a, #162a2b 60%, #243c48); border: 1px solid rgba(255,255,255,.1); font: 700 clamp(4rem, 10vw, 7rem) "Space Grotesk", sans-serif; color: var(--accent); }
+    .card-meta { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 20px; }
+    .status { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: .83rem; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+    .location { color: var(--muted); font-size: .83rem; }
+    .section-head { max-width: 650px; margin-bottom: 38px; }
+    .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 45px; align-items: start; }
+    .about-highlight { padding: 27px; border-radius: var(--radius); background: linear-gradient(145deg, rgba(121,242,192,.1), rgba(120,169,255,.06)); border: 1px solid rgba(121,242,192,.18); }
+    .about-highlight strong { display: block; font: 700 2.4rem "Space Grotesk", sans-serif; color: var(--accent); }
+    .about-text { color: var(--muted); font-size: 1.02rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+    .chip { padding: 7px 12px; border: 1px solid var(--line); border-radius: 999px; color: #c7d3e3; background: rgba(255,255,255,.025); font-size: .82rem; }
+    .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .skill { padding: 23px; border: 1px solid var(--line); background: var(--surface); border-radius: 17px; }
+    .skill-top { display: flex; justify-content: space-between; gap: 15px; margin-bottom: 13px; font-weight: 600; }
+    .skill-top span:last-child { color: var(--accent); font-variant-numeric: tabular-nums; }
+    .track { height: 8px; background: #263142; border-radius: 99px; overflow: hidden; }
+    .fill { height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transition: width 1.2s cubic-bezier(.2,.8,.2,1); }
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .project { min-height: 270px; display: flex; flex-direction: column; padding: 25px; border-radius: var(--radius); border: 1px solid var(--line); background: linear-gradient(150deg, var(--surface-2), var(--surface)); transition: .25s ease; }
+    .project:hover { transform: translateY(-6px); border-color: rgba(121,242,192,.35); }
+    .project-icon { width: 47px; height: 47px; display: grid; place-items: center; border-radius: 14px; background: rgba(121,242,192,.1); color: var(--accent); font-size: 1.35rem; margin-bottom: 25px; }
+    .project p { color: var(--muted); font-size: .93rem; }
+    .project .chips { margin-top: auto; padding-top: 12px; }
+    .education-card { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 22px; padding: 27px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+    .edu-icon { width: 55px; height: 55px; display: grid; place-items: center; border-radius: 16px; background: rgba(120,169,255,.12); font-size: 1.5rem; }
+    .edu-year { color: var(--accent); font-size: .9rem; white-space: nowrap; }
+    .contact-panel { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 30px; padding: clamp(25px, 5vw, 48px); border: 1px solid rgba(121,242,192,.2); border-radius: 28px; background: linear-gradient(120deg, rgba(121,242,192,.1), rgba(120,169,255,.07)); }
+    .contact-panel p { color: var(--muted); margin-bottom: 0; max-width: 560px; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 11px; }
+    footer { padding: 28px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 800px) {
+      .hero-grid, .about-grid { grid-template-columns: 1fr; }
+      .hero-card { max-width: 360px; }
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+      .contact-panel { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .container { width: min(100% - 30px, var(--max)); }
+      section { padding: 72px 0; }
+      .hero { min-height: auto; padding: 75px 0; }
+      .menu-btn { display: inline-flex; }
+      .nav-links { display: none; position: absolute; top: 76px; left: 0; right: 0; padding: 18px 22px 22px; background: #0c111b; border-bottom: 1px solid var(--line); flex-direction: column; align-items: flex-start; gap: 16px; }
+      .nav-links.open { display: flex; }
+      .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+      .education-card { grid-template-columns: auto 1fr; }
+      .edu-year { grid-column: 2; }
+      .hero-card { max-width: 300px; }
+      .footer-inner { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav class="container" aria-label="Main navigation">
+      <a class="brand" href="#home">TIRTH<span>.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">BCA Student · Bhavnagar, Gujarat</div>
+          <h1>Hi, I'm<br><span class="name">Tirth Makwana.</span></h1>
+          <div class="typing-line">I'm a <span class="typing" id="typingText">BCA Student</span></div>
+          <p class="hero-desc">I enjoy learning new technologies, creating useful digital experiences, and turning ideas into practical projects. Welcome to my portfolio.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#projects">Explore my work <span>↗</span></a>
+            <a class="btn btn-secondary" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <aside class="hero-card reveal" aria-label="Profile card">
+          <div class="avatar" aria-label="Initials TM">TM</div>
+          <div class="card-meta">
+            <div><strong>Tirth Makwana</strong><div class="status"><span class="dot"></span> Open to learning & opportunities</div></div>
+            <div class="location">📍 Bhavnagar</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal"><div class="eyebrow">A little about me</div><h2>Curious mind. <span style="color:var(--accent)">Creative approach.</span></h2></div>
+        <div class="about-grid">
+          <div class="about-highlight reveal"><strong>BCA</strong><span class="muted">Bachelor of Computer Applications</span><div class="chips"><span class="chip">Technology</span><span class="chip">Creativity</span><span class="chip">Problem solving</span></div></div>
+          <div class="about-text reveal">
+            <p>I'm <strong style="color:var(--text)">Tirth Makwana</strong>, a BCA student from Bhavnagar, Gujarat. I'm building my knowledge in computer applications and exploring how technology can solve everyday problems.</p>
+            <p>I like working with design tools, office applications, and AI tools. I believe in learning by doing, improving a little every day, and staying open to new ideas.</p>
+            <p>My goal is to grow my technical and communication skills while creating projects that are simple, useful, and meaningful.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head reveal"><div class="eyebrow">What I can do</div><h2>Skills & <span style="color:var(--accent)">strengths.</span></h2><p class="muted">A snapshot of the tools and abilities I'm developing. Progress levels are editable estimates.</p></div>
+        <div class="skills-grid">
+          <div class="skill reveal"><div class="skill-top"><span>🎨 Canva Design</span><span>85%</span></div><div class="track"><div class="fill" data-level="85%"></div></div></div>
+          <div class="skill reveal"><div class="skill-top"><span>📊 MS Office</span><span>80%</span></div><div class="track"><div class="fill" data-level="80%"></div></div></div>
+          <div class="skill reveal"><div class="skill-top"><span>🤖 AI Tools</span><span>75%</span></div><div class="track"><div class="fill" data-level="75%"></div></div></div>
+          <div class="skill reveal"><div class="skill-top"><span>💬 Communication</span><span>80%</span></div><div class="track"><div class="fill" data-level="80%"></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head reveal"><div class="eyebrow">Selected work</div><h2>Projects I've <span style="color:var(--accent)">worked on.</span></h2><p class="muted">A few sample project entries to get your portfolio started. Replace these with your actual work and project links.</p></div>
+        <div class="projects-grid">
+          <article class="project reveal"><div class="project-icon">✦</div><h3>Personal Portfolio</h3><p>A responsive personal website to introduce myself, highlight my skills, and make it easy for people to contact me.</p><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div></article>
+          <article class="project reveal"><div class="project-icon">▦</div><h3>Creative Canva Designs</h3><p>A collection of social media posts, posters, and presentation layouts created to practise visual communication and design.</p><div class="chips"><span class="chip">Canva</span><span class="chip">Design</span></div></article>
+          <article class="project reveal"><div class="project-icon">⌘</div><h3>Student Utility Concept</h3><p>A simple concept for a student-focused digital tool that organizes useful study information and everyday academic tasks.</p><div class="chips"><span class="chip">Planning</span><span class="chip">UI ideas</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-head reveal"><div class="eyebrow">Learning journey</div><h2>My <span style="color:var(--accent)">education.</span></h2></div>
+        <div class="education-card reveal">
+          <div class="edu-icon">🎓</div>
+          <div><h3>Bachelor of Computer Applications (BCA)</h3><p class="muted" style="margin:0">Currently pursuing · Add your college or university name here</p></div>
+          <div class="edu-year">Present</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div><div class="eyebrow">Let's connect</div><h2>Have an idea? Let's talk.</h2><p>I'm happy to connect, learn, and explore opportunities. Reach out through Instagram or WhatsApp.</p></div>
+          <div class="contact-links">
+            <!-- Replace the example links below with your real profile details. -->
+            <a class="btn btn-primary" href="https://www.instagram.com/YOUR_USERNAME/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+            <a class="btn btn-secondary" href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-inner"><span>© <span id="year"></span> Tirth Makwana. All rights reserved.</span><span>Designed with curiosity & ☕</span></div></footer>
+
+  <script>
+    // Typing animation
+    const words = ["BCA Student", "Creative Learner", "Canva Designer", "Tech Enthusiast"];
+    const typingText = document.getElementById("typingText");
+    let wordIndex = 0, charIndex = 0, deleting = false;
+    function typeLoop() {
+      const word = words[wordIndex];
+      typingText.textContent = word.slice(0, charIndex);
+      if (!deleting && charIndex < word.length) {
+        charIndex++; setTimeout(typeLoop, 95);
+      } else if (deleting && charIndex > 0) {
+        charIndex--; setTimeout(typeLoop, 48);
+      } else {
+        deleting = !deleting;
+        if (!deleting) wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(typeLoop, deleting ? 1100 : 300);
+      }
+    }
+    typeLoop();
+
+    // Mobile navigation
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    menuBtn.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(open));
+      menuBtn.textContent = open ? "✕" : "☰";
+    });
+    navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.textContent = "☰";
+    }));
+
+    // Reveal sections and animate skill bars when visible
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          entry.target.querySelectorAll?.(".fill").forEach(bar => bar.style.width = bar.dataset.level);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
